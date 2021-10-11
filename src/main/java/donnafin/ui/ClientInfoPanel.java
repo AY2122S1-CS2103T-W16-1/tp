@@ -3,10 +3,10 @@ package donnafin.ui;
 import java.util.stream.Collectors;
 
 import donnafin.logic.PersonAdapter;
+import donnafin.model.person.Attribute;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 
@@ -15,7 +15,7 @@ public class ClientInfoPanel extends UiPart<Region> {
     private PersonAdapter personAdapter;
 
     @FXML
-    private ListView<AttributePanel> clientInfoList;
+    private ListView<Attribute> clientInfoList;
 
     /**
      * Creates a {@code PersonListPanel} with the given {@code ObservableList}.
@@ -24,31 +24,11 @@ public class ClientInfoPanel extends UiPart<Region> {
         super(FXML);
         this.personAdapter = personAdapter;
         // Make all the attributes into FXML AttributePanel
-        ObservableList<AttributePanel> attributePanelObservableList =
+        ObservableList<Attribute> attributeObservableList =
                 personAdapter.getAllAttributesList().stream()
-                        .map(x -> new AttributePanel(x))
                         .collect(Collectors.toCollection(FXCollections::observableArrayList));
-        clientInfoList.setItems(attributePanelObservableList);
-        clientInfoList.setCellFactory(listView -> new AttributeListViewCell());
-    }
-
-    class AttributeListViewCell extends ListCell<AttributePanel> {
-        @Override
-        protected void updateItem(AttributePanel attribute, boolean empty) {
-            super.updateItem(attribute, empty);
-
-            if (empty || attribute == null) {
-                setGraphic(null);
-                setText(null);
-            } else {
-                setGraphic(attribute.getRoot());
-            }
-        }
-    }
-
-    /**
-     * Handles the Enter button pressed event.
-     */
-    private void handleCommandEntered(String attributeChanged) {
+        clientInfoList.setItems(attributeObservableList);
+        clientInfoList.setCellFactory(listView -> new AttributePanel());
+        clientInfoList.getSelectionModel().selectFirst();
     }
 }

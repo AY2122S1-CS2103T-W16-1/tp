@@ -170,6 +170,7 @@ public class MainWindow extends UiPart<Stage> {
      */
     public void switchTab(UiPart<Region> tab) {
         switchTab(this.viewFinderPlaceholder, tab);
+        viewFinderPlaceholder.requestFocus();
     }
 
     public void switchToHome() {
