@@ -1,4 +1,4 @@
-package seedu.address.ui.testutil;
+package donnafin.ui.testutil;
 
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;

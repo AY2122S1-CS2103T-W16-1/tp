@@ -1,4 +1,4 @@
-package seedu.address.ui;
+package donnafin.ui;
 
 import java.util.Optional;
 
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.RegisterExtension;
 import guitests.GuiRobot;
 import guitests.guihandles.exceptions.NodeNotFoundException;
 import javafx.scene.Node;
-import seedu.address.ui.testutil.UiPartExtension;
+import donnafin.ui.testutil.UiPartExtension;
 
 /**
  * A GUI unit test class for AddressBook.

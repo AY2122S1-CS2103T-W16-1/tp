@@ -1,4 +1,4 @@
-package seedu.address.ui.testutil;
+package donnafin.ui.testutil;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import guitests.guihandles.ClientCardHandle;
 import guitests.guihandles.ClientListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
-import seedu.address.model.client.Client;
+import donnafin.model.client.Client;
 
 /**
  * A set of assertion methods useful for writing GUI tests.
