@@ -4,9 +4,9 @@ import java.util.concurrent.TimeoutException;
 
 import org.testfx.api.FxToolkit;
 
+import donnafin.ui.UiPart;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import donnafin.ui.UiPart;
 
 /**
  * Provides an isolated stage to test an individual {@code UiPart}.

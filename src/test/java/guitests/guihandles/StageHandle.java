@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import donnafin.commons.core.LogsCenter;
 import guitests.GuiRobot;
 import guitests.guihandles.exceptions.NodeNotFoundException;
 import javafx.scene.Node;
 import javafx.stage.Stage;
-import donnafin.commons.core.LogsCenter;
 
 /**
  * Provides access to a stage in a JavaFx application for GUI testing purposes.
