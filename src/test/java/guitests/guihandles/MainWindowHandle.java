@@ -7,11 +7,8 @@ import javafx.stage.Stage;
  */
 public class MainWindowHandle extends StageHandle {
 
-    private final ClientListPanelHandle clientListPanel;
     private final ResultDisplayHandle resultDisplay;
     private final CommandBoxHandle commandBox;
-    private final StatusBarFooterHandle statusBarFooter;
-    private final MainMenuHandle mainMenu;
 
     /**
      * Constructor for the handle.
