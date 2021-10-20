@@ -45,7 +45,6 @@ public class LogicManager implements Logic {
 
         //Implement any changes logic that needs to happen
         Consumer<Logic> logicAction = commandResult.getLogicAction();
-        assert !logicAction.equals(null) : "commandResult.uiAction was set as null";
         if (!logicAction.equals(null)) {
             logicAction.accept(this);
         }
