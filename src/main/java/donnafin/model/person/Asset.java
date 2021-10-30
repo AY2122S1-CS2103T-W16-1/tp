@@ -71,14 +71,14 @@ public class Asset implements Attribute {
         checkArgument(isValidVariable(name), MESSAGE_CONSTRAINTS);
         checkArgument(isValidVariable(type), MESSAGE_CONSTRAINTS);
         checkArgument(isValidVariable(remarks), MESSAGE_CONSTRAINTS);
-        this.name = name;
-        this.type = type;
+        this.name = name.trim().replaceAll("\\s\\s+", " ");
+        this.type = type.trim().replaceAll("\\s\\s+", " ");
         try {
             this.value = ParserUtil.parseMoney(value);
         } catch (ParseException e) {
             throw new IllegalArgumentException(Money.MESSAGE_CONSTRAINTS);
         }
-        this.remarks = remarks;
+        this.remarks = remarks.trim().replaceAll("\\s\\s+", " ");
     }
 
     /**
@@ -109,10 +109,10 @@ public class Asset implements Attribute {
         }
 
         Asset asset = (Asset) o;
-        return getName().equals(asset.getName())
-                && getType().equals(asset.getType())
+        return getName().equalsIgnoreCase(asset.getName())
+                && getType().equalsIgnoreCase(asset.getType())
                 && getValue().equals(asset.getValue())
-                && getRemarks().equals(asset.getRemarks());
+                && getRemarks().equalsIgnoreCase(asset.getRemarks());
     }
 
     @Override

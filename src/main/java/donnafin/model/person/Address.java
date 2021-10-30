@@ -26,6 +26,7 @@ public class Address implements Attribute {
      */
     public Address(String address) {
         requireNonNull(address);
+        address = address.trim().replaceAll("\\s\\s+", " ");
         checkArgument(isValidAddress(address), MESSAGE_CONSTRAINTS);
         value = address;
     }
@@ -46,7 +47,7 @@ public class Address implements Attribute {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Address // instanceof handles nulls
-                && value.equals(((Address) other).value)); // state check
+                && value.equalsIgnoreCase(((Address) other).value)); // state check
     }
 
     @Override

@@ -76,8 +76,8 @@ public class Policy implements Attribute {
         requireAllNonNull(name, insurer, totalValueInsured, yearlyPremiums, commission);
         checkArgument(isValidVariable(name), MESSAGE_CONSTRAINTS);
         checkArgument(isValidVariable(insurer), MESSAGE_CONSTRAINTS);
-        this.name = name;
-        this.insurer = insurer;
+        this.name = name.trim().replaceAll("\\s\\s+", " ");
+        this.insurer = insurer.trim().replaceAll("\\s\\s+", " ");
         try {
             this.totalValueInsured = ParserUtil.parseMoney(totalValueInsured);
             this.yearlyPremiums = ParserUtil.parseMoney(yearlyPremiums);
@@ -116,8 +116,8 @@ public class Policy implements Attribute {
         }
 
         Policy policy = (Policy) o;
-        return getName().equals(policy.getName())
-                && getInsurer().equals(policy.getInsurer())
+        return getName().equalsIgnoreCase(policy.getName())
+                && getInsurer().equalsIgnoreCase(policy.getInsurer())
                 && getTotalValueInsured().equals(policy.getTotalValueInsured())
                 && getYearlyPremiums().equals(policy.getYearlyPremiums())
                 && getCommission().equals(policy.getCommission());

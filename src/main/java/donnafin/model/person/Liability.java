@@ -71,14 +71,14 @@ public class Liability implements Attribute {
         checkArgument(isValidVariable(name), MESSAGE_CONSTRAINTS);
         checkArgument(isValidVariable(type), MESSAGE_CONSTRAINTS);
         checkArgument(isValidVariable(remarks), MESSAGE_CONSTRAINTS);
-        this.name = name;
-        this.type = type;
+        this.name = name.trim().replaceAll("\\s\\s+", " ");
+        this.type = type.trim().replaceAll("\\s\\s+", " ");
         try {
             this.value = ParserUtil.parseMoney(value);
         } catch (ParseException e) {
             throw new IllegalArgumentException(Money.MESSAGE_CONSTRAINTS);
         }
-        this.remarks = remarks;
+        this.remarks = remarks.trim().replaceAll("\\s\\s+", " ");
     }
 
     /**
@@ -109,10 +109,10 @@ public class Liability implements Attribute {
         }
 
         Liability liability = (Liability) o;
-        return getName().equals(liability.getName())
-                && getType().equals(liability.getType())
+        return getName().equalsIgnoreCase(liability.getName())
+                && getType().equalsIgnoreCase(liability.getType())
                 && getValue().equals(liability.getValue())
-                && getRemarks().equals(liability.getRemarks());
+                && getRemarks().equalsIgnoreCase(liability.getRemarks());
     }
 
     @Override

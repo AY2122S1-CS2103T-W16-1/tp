@@ -22,6 +22,7 @@ public class Phone implements Attribute {
      */
     public Phone(String phone) {
         requireNonNull(phone);
+        phone = phone.trim().replaceAll("\\s\\s+", " ");
         checkArgument(isValidPhone(phone), MESSAGE_CONSTRAINTS);
         value = phone;
     }
@@ -42,7 +43,7 @@ public class Phone implements Attribute {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Phone // instanceof handles nulls
-                && value.equals(((Phone) other).value)); // state check
+                && value.equalsIgnoreCase(((Phone) other).value)); // state check
     }
 
     @Override

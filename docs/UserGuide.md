@@ -57,6 +57,12 @@ Note: From here on we shall refer to DonnaFin.io as DonnaFin for your readabilit
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
+* If the parameters are simple (not multiline), Donnafin will take care of any accidental double or trailing spaces<br>
+  e.g. "a/ Sun   Glade @ West Coast "  is the same as "a/Sun Glade @ West Coast" but not the same as "a/SunGlade @ WestCoast"
+
+* When adding new clients or adding a policy, asset or liability to a client, Donnafin ignores case and double or trailing spaces when checking for duplicates<br>
+  e.g. An existing client with the name "John Wayne" prevents you from adding "john  wayne "
+
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 

@@ -40,6 +40,7 @@ public class Email implements Attribute {
      */
     public Email(String email) {
         requireNonNull(email);
+        email = email.trim().replaceAll("\\s\\s+", " ");
         checkArgument(isValidEmail(email), MESSAGE_CONSTRAINTS);
         value = email;
     }
@@ -60,7 +61,7 @@ public class Email implements Attribute {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Email // instanceof handles nulls
-                && value.equals(((Email) other).value)); // state check
+                && value.equalsIgnoreCase(((Email) other).value)); // state check
     }
 
     @Override

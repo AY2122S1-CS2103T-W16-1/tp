@@ -45,7 +45,7 @@ public class Notes implements Attribute {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Notes // instanceof handles nulls
-                && notes.equals(((Notes) other).notes)); // state check
+                && notes.equalsIgnoreCase(((Notes) other).notes)); // state check
     }
 
     @Override
